@@ -10,15 +10,13 @@ class TestGetLowestRental(unittest.TestCase):
         with open('testDataset.csv', 'r', newline="") as csvfile:
             self.reader = list(csv.DictReader(csvfile))
 
-    def test_getLowestRental(self):
-        print("\ntestingFunc")
-
+    def test_equalGetLowestRental(self):
         listOfRentals = getLowestRental(self.reader, 1)
         self.assertEqual(len(listOfRentals), 1)
         listOfRentals = getLowestRental(self.reader, 5)
         self.assertEqual(len(listOfRentals), 5)
         listOfRentals = getLowestRental(self.reader, 5)
-        print(listOfRentals[0])
+
         self.assertEqual(listOfRentals[0],
                          {'Property Name': 'Potternewton Crescent',
                           'Property Address [1]': 
@@ -33,14 +31,19 @@ class TestGetLowestRental(unittest.TestCase):
                           'Lease Years': '20',
                           'Current Rent': '6600.00'})
 
+    def test_valueErrGetLowestRental(self):
         with self.assertRaises(ValueError):
             getLowestRental(self.reader, 0)
         with self.assertRaises(ValueError):
             getLowestRental(self.reader, -1)
+
+    def test_typeErrGetLowestRental(self):
         with self.assertRaises(TypeError):
             getLowestRental(self.reader, 'one')
         with self.assertRaises(TypeError):
             getLowestRental(self.reader, 1.5)
+
+    def test_indErrGetLowestRental(self):
         with self.assertRaises(IndexError):
             getLowestRental(self.reader, 67)
 
