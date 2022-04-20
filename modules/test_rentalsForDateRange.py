@@ -10,9 +10,7 @@ class TestRentalsForDateRange(unittest.TestCase):
         with open('testDataset.csv', 'r', newline="") as csvfile:
             self.reader = list(csv.DictReader(csvfile))
 
-    def test_RentalsForDateRange(self):
-        print("\ntestingFunc")
-
+    def test_equalRentalsForDateRange(self):
         rentals = [{'Property Name': 'Potternewton Crescent',
                     'Property Address [1]': 'Potternewton Est Playing Field',
                     'Property  Address [2]': '',
@@ -124,6 +122,14 @@ class TestRentalsForDateRange(unittest.TestCase):
         self.assertEqual(
             rentalsForDateRange(
                 self.reader, '01 Jun 2003', '31 Aug 2007'), rentals)
+
+    def test_typeErrRentalsForDateRange(self):
+        with self.assertRaises(TypeError):
+            rentalsForDateRange(self.reader, 73, 'one')
+    
+    def test_valErrRentalsForDateRange(self):
+        with self.assertRaises(ValueError):
+            rentalsForDateRange(self.reader, '73', 'one')
 
 
 if __name__ == '__main__':
