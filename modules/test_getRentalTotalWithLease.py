@@ -11,8 +11,6 @@ class TestGetRentalTotalWithLease(unittest.TestCase):
             self.reader = list(csv.DictReader(csvfile))
 
     def test_equalGetRentalTotalWithLease(self):
-        print("\ntestingFunc")
-
         totalRental = getRentalTotalWithLease(self.reader, 25)
         self.assertEqual(totalRental, 46500)
         totalRental = getRentalTotalWithLease(self.reader, 64)
