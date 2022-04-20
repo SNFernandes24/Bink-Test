@@ -4,6 +4,7 @@ def getLowestRental(reader, count):
     count: The rows of data to return.
 
     """
+    # Exception handling
     if isinstance(count, int) is False:
         raise TypeError("Expecting Integer type value")
     if count <= 0:

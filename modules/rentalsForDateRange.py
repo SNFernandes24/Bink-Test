@@ -7,6 +7,7 @@ def rentalsForDateRange(reader, start, end):
     end: Specify the end date to limit the data returned.
 
     """
+    # Exception handling
     if isinstance(start, str) is False:
         raise TypeError("Expecting a String value")
     try:
@@ -18,6 +19,7 @@ def rentalsForDateRange(reader, start, end):
     except ValueError:
         raise ValueError("Expecting date format: '01 Jan 1990' for End date")
 
+    # Sorts dates in ascending order
     sortedList = sorted(reader, key=lambda row: datetime.strptime(
             (row['Lease Start Date']), '%d %b %Y')
         )
