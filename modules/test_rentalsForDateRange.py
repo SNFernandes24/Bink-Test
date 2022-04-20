@@ -61,7 +61,7 @@ class TestRentalsForDateRange(unittest.TestCase):
                     'Property Address [3]': '',
                     'Property Address [4]': 'LS14',
                     'Unit Name': 'Seacroft Gate (Chase) - Block 2, WYK 0414',
-                    'Tenant Name': 
+                    'Tenant Name':
                         'Hutchinson3G Uk Ltd&Everything Everywhere Ltd',
                     'Lease Start Date': '21 Aug 2007',
                     'Lease End Date': '20 Aug 2032',
@@ -110,9 +110,9 @@ class TestRentalsForDateRange(unittest.TestCase):
                     'Property Address [3]': '',
                     'Property  Address [2]': 'Leeds',
                     'Property Address [4]': 'LS14',
-                    'Unit Name': 
+                    'Unit Name':
                         'Seacroft Gate (Chase) - Block 2, WYK 0414',
-                    'Tenant Name': 
+                    'Tenant Name':
                         'Hutchinson3G Uk Ltd&Everything Everywhere Ltd',
                     'Lease Start Date': '21 Aug 2007',
                     'Lease End Date': '20 Aug 2032',
@@ -126,7 +126,7 @@ class TestRentalsForDateRange(unittest.TestCase):
     def test_typeErrRentalsForDateRange(self):
         with self.assertRaises(TypeError):
             rentalsForDateRange(self.reader, 73, 'one')
-    
+
     def test_valErrRentalsForDateRange(self):
         with self.assertRaises(ValueError):
             rentalsForDateRange(self.reader, '73', 'one')
