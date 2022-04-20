@@ -19,7 +19,7 @@ class TestGetRentalTotalWithLease(unittest.TestCase):
     def test_valueErrGetRentalTotalWithLease(self):
         with self.assertRaises(ValueError):
             getRentalTotalWithLease(self.reader, 73)
-    
+
     def test_typeErrGetRentalTotalWithLease(self):
         with self.assertRaises(TypeError):
             getRentalTotalWithLease(self.reader, '73')

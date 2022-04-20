@@ -19,8 +19,8 @@ class TestGetLowestRental(unittest.TestCase):
 
         self.assertEqual(listOfRentals[0],
                          {'Property Name': 'Potternewton Crescent',
-                          'Property Address [1]': 
-                            'Potternewton Est Playing Field',
+                          'Property Address [1]':
+                          'Potternewton Est Playing Field',
                           'Property  Address [2]': '',
                           'Property Address [3]': '',
                           'Property Address [4]': 'LS7',

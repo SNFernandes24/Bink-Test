@@ -23,3 +23,5 @@ if __name__ == '__main__':
         
         print("Amount of Masts owned per tenant: ")
         print(mastsOwnedPerTenant(reader))
+else:
+    raise KeyError("Could not load the file or read as Dictionary")
