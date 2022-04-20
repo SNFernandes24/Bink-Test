@@ -12,6 +12,8 @@ def mastsOwnedPerTenant(reader):
                 tenantOwned[row["Tenant Name"]] = 1
             else:
                 tenantOwned[row["Tenant Name"]] += 1
+
+    # Format all tenants with masts owned
     finalTenantList = []
     for key, val in tenantOwned.items():
         if val <= 1:

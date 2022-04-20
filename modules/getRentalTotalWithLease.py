@@ -4,12 +4,15 @@ def getRentalTotalWithLease(reader, years):
     years: select the specific number of Lease Years to add rental together.
 
     """
+    # Exception handling
     if isinstance(years, int) is False:
         raise TypeError("Expecting Integer type value")
 
     # list comprehension to get all data with specified years
     listCompres = [row for row in reader if row["Lease Years"] == str(years)]
     totalRental = 0
+
+    # Add all current rent for the given years
     if len(listCompres) > 0:
         for currRent in listCompres:
             totalRental += float(currRent["Current Rent"])

@@ -5,11 +5,13 @@ from rentalsForDateRange import rentalsForDateRange
 
 class TestRentalsForDateRange(unittest.TestCase):
 
+    # Set up
     def setUp(self):
         print("\ntestSetup")
         with open('testDataset.csv', 'r', newline="") as csvfile:
             self.reader = list(csv.DictReader(csvfile))
 
+    # Test if equal
     def test_equalRentalsForDateRange(self):
         rentals = [{'Property Name': 'Potternewton Crescent',
                     'Property Address [1]': 'Potternewton Est Playing Field',
@@ -61,7 +63,7 @@ class TestRentalsForDateRange(unittest.TestCase):
                     'Property Address [3]': '',
                     'Property Address [4]': 'LS14',
                     'Unit Name': 'Seacroft Gate (Chase) - Block 2, WYK 0414',
-                    'Tenant Name': 
+                    'Tenant Name':
                         'Hutchinson3G Uk Ltd&Everything Everywhere Ltd',
                     'Lease Start Date': '21 Aug 2007',
                     'Lease End Date': '20 Aug 2032',
@@ -110,9 +112,9 @@ class TestRentalsForDateRange(unittest.TestCase):
                     'Property Address [3]': '',
                     'Property  Address [2]': 'Leeds',
                     'Property Address [4]': 'LS14',
-                    'Unit Name': 
+                    'Unit Name':
                         'Seacroft Gate (Chase) - Block 2, WYK 0414',
-                    'Tenant Name': 
+                    'Tenant Name':
                         'Hutchinson3G Uk Ltd&Everything Everywhere Ltd',
                     'Lease Start Date': '21 Aug 2007',
                     'Lease End Date': '20 Aug 2032',
@@ -123,10 +125,12 @@ class TestRentalsForDateRange(unittest.TestCase):
             rentalsForDateRange(
                 self.reader, '01 Jun 2003', '31 Aug 2007'), rentals)
 
+    # Test type error
     def test_typeErrRentalsForDateRange(self):
         with self.assertRaises(TypeError):
             rentalsForDateRange(self.reader, 73, 'one')
-    
+
+    # Test value error
     def test_valErrRentalsForDateRange(self):
         with self.assertRaises(ValueError):
             rentalsForDateRange(self.reader, '73', 'one')
