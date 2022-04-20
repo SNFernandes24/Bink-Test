@@ -10,7 +10,7 @@ class TestGetRentalTotalWithLease(unittest.TestCase):
         with open('testDataset.csv', 'r', newline="") as csvfile:
             self.reader = list(csv.DictReader(csvfile))
 
-    def test_getRentalTotalWithLease(self):
+    def test_equalGetRentalTotalWithLease(self):
         print("\ntestingFunc")
 
         totalRental = getRentalTotalWithLease(self.reader, 25)
@@ -18,8 +18,11 @@ class TestGetRentalTotalWithLease(unittest.TestCase):
         totalRental = getRentalTotalWithLease(self.reader, 64)
         self.assertEqual(totalRental, 23950)
 
+    def test_valueErrGetRentalTotalWithLease(self):
         with self.assertRaises(ValueError):
             getRentalTotalWithLease(self.reader, 73)
+    
+    def test_typeErrGetRentalTotalWithLease(self):
         with self.assertRaises(TypeError):
             getRentalTotalWithLease(self.reader, '73')
 
